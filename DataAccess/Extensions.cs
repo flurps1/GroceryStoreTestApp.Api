@@ -7,6 +7,7 @@ public static class Extensions
 {
     public static IServiceCollection AddDataAccess(this IServiceCollection serviceCollection)
     {
+        serviceCollection.AddScoped<IProductRepository, ProductRepository>();
         serviceCollection.AddDbContext<AppContext>(x =>
         {
             x.UseNpgsql("Host=localhost;Port=5433;Database=Api;Username=postgres;Password=1234");

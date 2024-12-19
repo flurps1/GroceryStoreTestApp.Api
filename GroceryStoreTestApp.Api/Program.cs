@@ -43,9 +43,11 @@
 //     public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
 // }
 
+using Business_Logic;
 using DataAccess;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDataAccess();
+builder.Services.AddLogicServices();
 var app = builder.Build();
 app.Run();
