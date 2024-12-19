@@ -2,6 +2,10 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GroceryStoreTestApp.Api", "GroceryStoreTestApp.Api\GroceryStoreTestApp.Api.csproj", "{A9A9DD6A-C410-4330-9114-8B5375BC810F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business Logic", "Business Logic\Business Logic.csproj", "{4D73C0AA-4E74-4A26-B7C8-D5525DF5E953}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{167EC1A9-71D4-4ECE-8668-D9C5EEF7EDF1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +16,13 @@ Global
 		{A9A9DD6A-C410-4330-9114-8B5375BC810F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A9A9DD6A-C410-4330-9114-8B5375BC810F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A9A9DD6A-C410-4330-9114-8B5375BC810F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D73C0AA-4E74-4A26-B7C8-D5525DF5E953}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D73C0AA-4E74-4A26-B7C8-D5525DF5E953}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D73C0AA-4E74-4A26-B7C8-D5525DF5E953}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D73C0AA-4E74-4A26-B7C8-D5525DF5E953}.Release|Any CPU.Build.0 = Release|Any CPU
+		{167EC1A9-71D4-4ECE-8668-D9C5EEF7EDF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{167EC1A9-71D4-4ECE-8668-D9C5EEF7EDF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{167EC1A9-71D4-4ECE-8668-D9C5EEF7EDF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{167EC1A9-71D4-4ECE-8668-D9C5EEF7EDF1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
