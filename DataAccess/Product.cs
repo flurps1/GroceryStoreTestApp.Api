@@ -1,6 +1,6 @@
 ﻿namespace DataAccess;
 
-public class ProductsModel
+public class Product
 {
     public int Id { get; set; }
     public string Name { get; set; }

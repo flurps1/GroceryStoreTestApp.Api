@@ -1,10 +1,39 @@
-﻿namespace DataAccess;
+﻿using Microsoft.EntityFrameworkCore;
 
-internal class ProductRepository(AppContext context) : IProductRepository
+namespace DataAccess
 {
-    public async Task CreateAsync(ProductsModel product, CancellationToken cancellationToken = default)
+
+    public interface IProductRepository
     {
-        await context.Products.AddAsync(product, cancellationToken);
-        await context.SaveChangesAsync(cancellationToken);
+        Task CreateAsync(Product product, CancellationToken cancellationToken = default);
+        Task<Product?> GetByIdAsync(int id, CancellationToken cancellationToken = default);
+        Task UpdateAsync(Product product, CancellationToken cancellationToken = default);
+        Task RemoveAsync(Product product, CancellationToken cancellationToken = default);
+    }
+
+    internal class ProductRepository(AppContext context) : IProductRepository
+    {
+        public async Task CreateAsync(Product product, CancellationToken cancellationToken = default)
+        {
+            await context.Products.AddAsync(product, cancellationToken);
+            await context.SaveChangesAsync(cancellationToken);
+        }
+
+        public async Task<Product?> GetByIdAsync(int id, CancellationToken cancellationToken = default)
+        {
+            return await context.Products.FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
+        }
+
+        public async Task UpdateAsync(Product product, CancellationToken cancellationToken = default)
+        {
+            context.Products.Update(product);
+            await context.SaveChangesAsync(cancellationToken);
+        }
+
+        public async Task RemoveAsync(Product product, CancellationToken cancellationToken = default)
+        {
+            context.Products.Remove(product);
+            await context.SaveChangesAsync(cancellationToken);
+        }
     }
 }

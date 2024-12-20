@@ -8,6 +8,8 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["GroceryStoreTestApp.Api/GroceryStoreTestApp.Api.csproj", "GroceryStoreTestApp.Api/"]
+COPY ["BussinessLogic/BussinessLogic.csproj", "BussinessLogic/"]
+COPY ["DataAccess/DataAccess.csproj", "DataAccess/"]
 RUN dotnet restore "GroceryStoreTestApp.Api/GroceryStoreTestApp.Api.csproj"
 COPY . .
 WORKDIR "/src/GroceryStoreTestApp.Api"

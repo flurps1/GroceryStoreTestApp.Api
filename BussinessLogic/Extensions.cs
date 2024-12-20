@@ -1,7 +1,7 @@
-﻿using DataAccess;
+﻿
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Business_Logic;
+namespace BussinessLogic;
 
 public static class Extensions
 {
