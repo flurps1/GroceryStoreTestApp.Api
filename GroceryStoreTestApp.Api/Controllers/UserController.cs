@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace GroceryStoreTestApp.Api;
 
 [ApiController]
-[Route("User")]
+[Route("Users")]
 public class UserController(IUserService userService, IMapper mapper) : ControllerBase
 {
     [HttpGet]

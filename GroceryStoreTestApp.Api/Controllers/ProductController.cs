@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace GroceryStoreTestApp.Api;
 
 [ApiController]
-[Route("ProductModel")]
+[Route("Products")]
 public class ProductController(IProductService productService, IMapper mapper) : ControllerBase
 {
     [HttpGet]
