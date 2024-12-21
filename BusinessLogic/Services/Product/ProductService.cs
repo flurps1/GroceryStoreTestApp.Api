@@ -1,21 +1,17 @@
 ﻿using DataAccess;
 
-namespace BussinessLogic
+namespace BusinessLogic
 {
-
-    public interface IProductService
-    {
-        Task CreateAsync(string name, string imageUrl, int quantity, CancellationToken cancellationToken = default);
-        Task<string> GetById(int id, CancellationToken cancellationToken = default);
-        Task UpdateAsync(int id, string newName, CancellationToken cancellationToken = default);
-        Task RemoveAsync(int id, CancellationToken cancellationToken = default);
-    }
-
     internal class ProductService(IProductRepository productRepository) : IProductService
     {
+        public async Task<IEnumerable<ProductModel?>> GetAllProductsAsync(CancellationToken cancellationToken = default)
+        {
+            return await productRepository.GetAllProductsAsync(cancellationToken);
+        }
+
         public async Task CreateAsync(string name, string imageUrl, int quantity, CancellationToken cancellationToken)
         {
-            var product = new Product()
+            var product = new ProductModel
             {
                 Name = name,
                 ImageUrl = imageUrl,
@@ -24,14 +20,15 @@ namespace BussinessLogic
             await productRepository.CreateAsync(product, cancellationToken);
         }
 
-        public async Task<string> GetById(int id, CancellationToken cancellationToken = default)
+        public async Task<ProductModel> GetByIdAsync(int id, CancellationToken cancellationToken = default)
         {
             var product = await productRepository.GetByIdAsync(id, cancellationToken);
             if (product is null)
             {
-                throw new Exception("Product is not available");
+                throw new Exception("ProductModel is not available");
             }
-            return product.Name;
+
+            return product;
         }
 
         public async Task UpdateAsync(int id, string newName, CancellationToken cancellationToken = default)
@@ -39,19 +36,19 @@ namespace BussinessLogic
             var product = await productRepository.GetByIdAsync(id, cancellationToken);
             if (product is null)
             {
-                throw new Exception("Product is not available");
+                throw new Exception("ProductModel is not available");
             }
-            
+
             product.Name = newName;
             await productRepository.UpdateAsync(product, cancellationToken);
         }
 
-        public async Task RemoveAsync(int id, CancellationToken cancellationToken = default)
+        public async Task DeleteAsync(int id, CancellationToken cancellationToken = default)
         {
             var product = await productRepository.GetByIdAsync(id, cancellationToken);
             if (product is null)
             {
-                throw new Exception("Product is not available");
+                throw new Exception("ProductModel is not available");
             }
 
             await productRepository.RemoveAsync(product, cancellationToken);

@@ -1,13 +1,14 @@
-﻿
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 
-namespace BussinessLogic;
+namespace BusinessLogic;
 
 public static class Extensions
 {
     public static IServiceCollection AddLogicServices(this IServiceCollection serviceCollection)
     {
         serviceCollection.AddScoped<IProductService, ProductService>();
+        serviceCollection.AddScoped<ICartService, CartService>();
+        serviceCollection.AddScoped<IUserService, UserService>();
         return serviceCollection;
     }
 }
