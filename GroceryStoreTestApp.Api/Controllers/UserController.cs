@@ -16,7 +16,7 @@ public class UserController(IUserService userService, IMapper mapper) : Controll
         var usersDto = mapper.Map<IEnumerable<UserProfileDto>>(users);
         return Ok(usersDto);
     }
-
+    
     [HttpGet("{id}")]
     public async Task<IActionResult> GetUserAsync([FromRoute] int id)
     {

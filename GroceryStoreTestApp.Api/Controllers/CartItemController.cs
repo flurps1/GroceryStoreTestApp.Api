@@ -21,9 +21,6 @@ public class CartItemController(ICartService cartService, IMapper mapper) : Cont
     public async Task<IActionResult> GetCartAsync([FromRoute] int id)
     {
         var cart = await cartService.GetByIdAsync(id);
-        if (cart == null)
-            return NotFound();
-
         var cartDto = mapper.Map<CartItemDto>(cart);
         return Ok(cartDto);
     }
@@ -53,7 +50,7 @@ public class CartItemController(ICartService cartService, IMapper mapper) : Cont
         {
             var cartItem = new CartItemModel
             {
-                Id = id, // Для обновления существующего
+                Id = id,
                 ProductId = item.ProductId,
                 Quantity = item.Quantity
             };

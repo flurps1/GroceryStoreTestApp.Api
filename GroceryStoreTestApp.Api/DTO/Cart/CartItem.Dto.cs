@@ -1,35 +1,27 @@
 ﻿namespace GroceryStoreTestApp.Api
 {
-
     public class CartItemDto
     {
-        public int Id { get; set; } // Id записи корзины
-        public int UserId { get; set; } // Id пользователя
-        public int ProductId { get; set; } // Id продукта
-        public string ProductName { get; set; } // Название продукта
-        public int Quantity { get; set; } // Количество продуктов
+        public int Id { get; set; }
+        public int UserId { get; set; }
+        public int ProductId { get; set; }
+        public int Quantity { get; set; }
     }
 
-// DTO для создания корзины
-
-
-// DTO для создания отдельного продукта в корзине
     public class CreateCartItemDetailDto
     {
-        public int ProductId { get; set; } // Id продукта
-        public int Quantity { get; set; } // Количество
+        public int ProductId { get; set; }
+        public int Quantity { get; set; }
     }
 
-// DTO для обновления корзины
     public class UpdateCartItemDto
     {
-        public List<UpdateCartItemDetailDto> Items { get; set; } // Обновляемые продукты
+        public List<UpdateCartItemDetailDto> Items { get; set; }
     }
 
-// DTO для обновления отдельного продукта в корзине
     public class UpdateCartItemDetailDto
     {
-        public int ProductId { get; set; } // Id продукта
-        public int Quantity { get; set; } // Новое количество
+        public int ProductId { get; set; }
+        public int Quantity { get; set; }
     }
 }

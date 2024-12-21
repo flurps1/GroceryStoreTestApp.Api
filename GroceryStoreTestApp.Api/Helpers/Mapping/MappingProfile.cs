@@ -7,8 +7,31 @@ public class MappingProfile : Profile
 {
     public MappingProfile()
     {
-        CreateMap<ProductModel, ProductDto>();
-        CreateMap<CreatedProductDto, ProductModel>();
-        CreateMap<UpdateProductDto, ProductModel>();
+        #region Products
+
+        CreateMap<ProductModel, ProductDto>()
+            .ReverseMap();
+        CreateMap<CreatedProductDto, ProductModel>()
+            .ReverseMap();
+        CreateMap<UpdateProductDto, ProductModel>()
+            .ReverseMap();
+        
+        #endregion
+
+        #region Cart
+
+        CreateMap<CartItemModel, CartItemDto>()
+            .ReverseMap();
+        CreateMap<CreateCartItemDto, CartItemModel>().ReverseMap();
+        CreateMap<CreateCartItemDto, CartItemModel>().ReverseMap();
+
+        #endregion
+
+        #region Users
+
+        CreateMap<UserModel, UserProfileDto>()
+            .ReverseMap();
+        
+        #endregion
     }
 }
